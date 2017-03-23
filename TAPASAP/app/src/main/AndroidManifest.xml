@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Box_Home" />
+        <activity android:name=".Box_Play"></activity>
     </application>
 
 </manifest>
