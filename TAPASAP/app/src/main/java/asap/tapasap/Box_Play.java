@@ -79,15 +79,6 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
     }
 
     void fun(){
-        c1.setVisibility(View.INVISIBLE);
-        c2.setVisibility(View.INVISIBLE);
-        c3.setVisibility(View.INVISIBLE);
-        c4.setVisibility(View.INVISIBLE);
-        c5.setVisibility(View.INVISIBLE);
-        o2.setVisibility(View.INVISIBLE);
-        o3.setVisibility(View.INVISIBLE);
-        o1.setVisibility(View.INVISIBLE);
-
         fun5();
         Animation anim2 = AnimationUtils.loadAnimation(this,R.anim.itemdis);
         b1.setImageResource(images[show[0]]);
@@ -114,7 +105,7 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         b4.setVisibility(View.INVISIBLE);
         b5.setVisibility(View.INVISIBLE);
         b6.setVisibility(View.INVISIBLE);
-        fun4();
+        /*fun4();
         c1.setImageResource(images[show[4]]);
         c2.setImageResource(images[show[1]]);
         c3.setImageResource(images[show[3]]);
@@ -124,7 +115,7 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         c2.setVisibility(View.VISIBLE);
         c3.setVisibility(View.VISIBLE);
         c4.setVisibility(View.VISIBLE);
-        c5.setVisibility(View.VISIBLE);
+        c5.setVisibility(View.VISIBLE);*/
         optt();
         o1.setImageResource(images[opt[0]]);
         o2.setImageResource(images[opt[1]]);
@@ -187,6 +178,14 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
             case R.id.imageView20:
                 if(sel == opt[0]){
                     score++;
+                    c1.setVisibility(View.INVISIBLE);
+                    c2.setVisibility(View.INVISIBLE);
+                    c3.setVisibility(View.INVISIBLE);
+                    c4.setVisibility(View.INVISIBLE);
+                    c5.setVisibility(View.INVISIBLE);
+                    o2.setVisibility(View.INVISIBLE);
+                    o3.setVisibility(View.INVISIBLE);
+                    o1.setVisibility(View.INVISIBLE);
                     fun();
                 } else {
                     AlertDialog.Builder b = new AlertDialog.Builder(Box_Play.this);
