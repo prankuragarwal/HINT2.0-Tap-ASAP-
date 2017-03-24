@@ -27,8 +27,8 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_box__play);
-        android.app.ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffc000")));
+        /*android.app.ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffc000")));*/
         boxopen = (ImageView)findViewById(R.id.imageView8);
         boxclose = (ImageView)findViewById(R.id.imageView7);
         b1 = (ImageView)findViewById(R.id.imageView9);
@@ -63,6 +63,7 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         o3.setVisibility(View.GONE);
         Animation anim = AnimationUtils.loadAnimation(this,R.anim.fadein);
         Animation anim1 = AnimationUtils.loadAnimation(this,R.anim.fadeout);
+        boxclose.setVisibility(View.VISIBLE);
         boxclose.setAnimation(anim);
         boxclose.setAnimation(anim1);
         boxclose.setVisibility(View.GONE);
@@ -106,6 +107,12 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         b4.setAnimation(anim2);
         b5.setAnimation(anim2);
         b6.setAnimation(anim2);
+        b1.setVisibility(View.GONE);
+        b2.setVisibility(View.GONE);
+        b3.setVisibility(View.GONE);
+        b4.setVisibility(View.GONE);
+        b5.setVisibility(View.GONE);
+        b6.setVisibility(View.GONE);
         fun4();
         c1.setImageResource(images[show[4]]);
         c2.setImageResource(images[show[1]]);
@@ -149,11 +156,11 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
 
     void fun5() {
         int i;
-        for (i = 0; i < 6; i++){
+        /*for (i = 0; i < 6; i++){
             n[i] = -1;
-        }
+        }*/
         n[0] = (int)Math.random() % 15;
-        for(i = 1; i < 5; i++){
+        for(i = 1; i <= 5; i++){
             n[i] = (n[0] + i) % 15;
         }
         for (i = 0; i < 6; i++){
