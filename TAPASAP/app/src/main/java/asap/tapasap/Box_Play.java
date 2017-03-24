@@ -17,7 +17,7 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
     int []show = {-1,-1,-1,-1,-1,-1};
     int sel;
     ImageView boxopen, boxclose;
-    ImageView b1,b2,b3,b4,b5,b6;
+    ImageView b1,b2,b3,b4,b5,b6, c1,c2,c3,c4,c5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,11 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         b4 = (ImageView)findViewById(R.id.imageView12);
         b5 = (ImageView)findViewById(R.id.imageView13);
         b6 = (ImageView)findViewById(R.id.imageView14);
+        c1 = (ImageView)findViewById(R.id.imageView15);
+        c2 = (ImageView)findViewById(R.id.imageView16);
+        c3 = (ImageView)findViewById(R.id.imageView17);
+        c4 = (ImageView)findViewById(R.id.imageView18);
+        c5 = (ImageView)findViewById(R.id.imageView19);
         images = new int[] {R.mipmap.box1,R.mipmap.box2,R.mipmap.box3,R.mipmap.box4,R.mipmap.box5,R.mipmap.box6,R.mipmap.box7,
                 R.mipmap.box8,R.mipmap.box9,R.mipmap.box10,R.mipmap.box11,R.mipmap.box12,R.mipmap.box13,R.mipmap.box14,R.mipmap.box15};
         b1.setVisibility(View.GONE);
@@ -41,6 +46,11 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         b4.setVisibility(View.GONE);
         b5.setVisibility(View.GONE);
         b6.setVisibility(View.GONE);
+        c1.setVisibility(View.GONE);
+        c2.setVisibility(View.GONE);
+        c3.setVisibility(View.GONE);
+        c4.setVisibility(View.GONE);
+        c5.setVisibility(View.GONE);
         Animation anim = AnimationUtils.loadAnimation(this,R.anim.fadein);
         Animation anim1 = AnimationUtils.loadAnimation(this,R.anim.fadeout);
         boxclose.setAnimation(anim);
@@ -75,7 +85,11 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         b5.setAnimation(anim2);
         b6.setAnimation(anim2);
         fun4();
-
+        c1.setImageResource(images[show[4]]);
+        c2.setImageResource(images[show[1]]);
+        c3.setImageResource(images[show[3]]);
+        c4.setImageResource(images[show[2]]);
+        c5.setImageResource(images[show[0]]);
     }
     void fun5() {
         int i;
