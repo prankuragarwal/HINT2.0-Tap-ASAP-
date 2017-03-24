@@ -5,13 +5,7 @@
     android:id="@+id/content_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="asap.tapasap.Home"
-    tools:showIn="@layout/app_bar_home">
+    tools:context="asap.tapasap.MainActivity">
 
     <ImageView
         android:layout_width="100dp"
@@ -67,19 +61,6 @@
         android:layout_marginTop="37dp"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="CUPS"
-        android:layout_width="wrap_content"
-        android:textSize="25dp"
-        android:textColor="#ffffff"
-        android:layout_marginTop="97dp"
-        android:layout_marginRight="3dp"
-        android:textStyle="bold"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:id="@+id/textView1"
-        android:layout_toStartOf="@+id/imageView1" />
 
     <TextView
         android:text="BOX"
@@ -148,5 +129,19 @@
         android:layout_alignTop="@+id/imageView1"
         android:layout_alignStart="@+id/textView4"
         android:layout_marginBottom="22dp" />
+
+    <TextView
+        android:text="CUPS"
+        android:layout_width="wrap_content"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        android:layout_marginRight="3dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:id="@+id/textView1"
+        android:layout_above="@+id/imageView6"
+        android:layout_alignEnd="@+id/imageView5"
+        android:layout_marginEnd="14dp" />
 
 </RelativeLayout>

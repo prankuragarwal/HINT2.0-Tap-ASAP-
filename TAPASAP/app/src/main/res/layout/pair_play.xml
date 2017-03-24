@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp">
+    android:paddingTop="20dp"
+    android:id="@+id/pair_play"
+    tools:context="asap.tapasap.Pairs_Game">
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="80dp"

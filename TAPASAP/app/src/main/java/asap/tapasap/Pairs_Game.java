@@ -2,17 +2,15 @@ package asap.tapasap;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class pair_play extends AppCompatActivity implements View.OnClickListener{
+public class Pairs_Game extends AppCompatActivity implements View.OnClickListener{
 
     int[] img;
     int back, back1;
@@ -625,14 +623,14 @@ public class pair_play extends AppCompatActivity implements View.OnClickListener
             endtime = System.currentTimeMillis();
             long total = endtime - starttime;
             total = total/1000;
-            AlertDialog.Builder b = new AlertDialog.Builder(pair_play.this);
+            AlertDialog.Builder b = new AlertDialog.Builder(Pairs_Game.this);
             //Log.v("tsfst", String.valueOf(total));
             b.setTitle("Game Over");
             b.setMessage("Your time was " + total);
             b.setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Intent i = new Intent(pair_play.this, pair_play.class);
+                    Intent i = new Intent(Pairs_Game.this, Pairs_Game.class);
                     finish();
                     startActivity(i);
                 }
