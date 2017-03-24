@@ -1,8 +1,11 @@
 package asap.tapasap;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,9 +18,10 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
     int[] images;
     int[] n = {-1,-1,-1,-1,-1,-1};
     int []show = {-1,-1,-1,-1,-1,-1};
-    int sel;
+    int[] opt = {-1,-1,-1};
+    int sel, tt, score = 0;
     ImageView boxopen, boxclose;
-    ImageView b1,b2,b3,b4,b5,b6, c1,c2,c3,c4,c5;
+    ImageView b1,b2,b3,b4,b5,b6, c1,c2,c3,c4,c5,o1,o2,o3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,9 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         c3 = (ImageView)findViewById(R.id.imageView17);
         c4 = (ImageView)findViewById(R.id.imageView18);
         c5 = (ImageView)findViewById(R.id.imageView19);
+        o1 = (ImageView)findViewById(R.id.imageView20);
+        o2 = (ImageView)findViewById(R.id.imageView21);
+        o3 = (ImageView)findViewById(R.id.imageView22);
         images = new int[] {R.mipmap.box1,R.mipmap.box2,R.mipmap.box3,R.mipmap.box4,R.mipmap.box5,R.mipmap.box6,R.mipmap.box7,
                 R.mipmap.box8,R.mipmap.box9,R.mipmap.box10,R.mipmap.box11,R.mipmap.box12,R.mipmap.box13,R.mipmap.box14,R.mipmap.box15};
         b1.setVisibility(View.GONE);
@@ -51,6 +58,9 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         c3.setVisibility(View.GONE);
         c4.setVisibility(View.GONE);
         c5.setVisibility(View.GONE);
+        o1.setVisibility(View.GONE);
+        o2.setVisibility(View.GONE);
+        o3.setVisibility(View.GONE);
         Animation anim = AnimationUtils.loadAnimation(this,R.anim.fadein);
         Animation anim1 = AnimationUtils.loadAnimation(this,R.anim.fadeout);
         boxclose.setAnimation(anim);
@@ -61,9 +71,21 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         boxopen.setAnimation(anim1);
         boxopen.setVisibility(View.GONE);
         fun();
+        o1.setOnClickListener(this);
+        o2.setOnClickListener(this);
+        o3.setOnClickListener(this);
     }
 
     void fun(){
+        c1.setVisibility(View.GONE);
+        c2.setVisibility(View.GONE);
+        c3.setVisibility(View.GONE);
+        c4.setVisibility(View.GONE);
+        c5.setVisibility(View.GONE);
+        o2.setVisibility(View.GONE);
+        o3.setVisibility(View.GONE);
+        o1.setVisibility(View.GONE);
+
         fun5();
         Animation anim2 = AnimationUtils.loadAnimation(this,R.anim.itemdis);
         b1.setImageResource(images[show[0]]);
@@ -90,7 +112,41 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
         c3.setImageResource(images[show[3]]);
         c4.setImageResource(images[show[2]]);
         c5.setImageResource(images[show[0]]);
+        c1.setVisibility(View.VISIBLE);
+        c2.setVisibility(View.VISIBLE);
+        c3.setVisibility(View.VISIBLE);
+        c4.setVisibility(View.VISIBLE);
+        c5.setVisibility(View.VISIBLE);
+        optt();
+        o1.setImageResource(images[opt[0]]);
+        o2.setImageResource(images[opt[1]]);
+        o3.setImageResource(images[opt[2]]);
+        o2.setVisibility(View.VISIBLE);
+        o3.setVisibility(View.VISIBLE);
+        o1.setVisibility(View.VISIBLE);
     }
+
+    void optt() {
+        tt = (int) Math.random() % 3;
+        opt[tt] = sel;
+        if (tt == 0){
+            opt[1] = sel + 10;
+            opt[1] %= 15;
+            opt[2] = sel + 11;
+            opt[2] %= 15;
+        } else if (tt == 1){
+            opt[0] = sel + 10;
+            opt[0] %= 15;
+            opt[2] = sel + 11;
+            opt[2] %= 15;
+        } else if (tt == 2){
+            opt[1] = sel + 10;
+            opt[1] %= 15;
+            opt[0] = sel + 11;
+            opt[0] %= 15;
+        }
+    }
+
     void fun5() {
         int i;
         for (i = 0; i < 6; i++){
@@ -118,6 +174,113 @@ public class Box_Play extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        int get;
+        switch(v.getId()){
+            case R.id.imageView20:
+                if(sel == opt[0]){
+                    score++;
+                    fun();
+                } else {
+                    AlertDialog.Builder b = new AlertDialog.Builder(Box_Play.this);
+                    b.setTitle("GAME OVER");
+                    b.setMessage("Your score was " + score);
+                    b.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
 
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent i = new Intent(Box_Play.this, Box_Play.class);
+
+                            finish();
+
+                            startActivity(i);
+                        }
+                    });
+                    score = 0;
+
+                    b.setNegativeButton("Go to HomePage", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Intent i = new Intent(PlayGame.this, Home.class);
+
+                            finish();
+                            System.exit(0);
+                            //startActivity(i);
+
+                        }
+                    });
+                    b.show();
+                }
+                break;
+            case R.id.imageView21:
+                if(sel == opt[1]){
+                    score++;
+                    fun();
+                } else {
+                    AlertDialog.Builder b = new AlertDialog.Builder(Box_Play.this);
+                    b.setTitle("GAME OVER");
+                    b.setMessage("Your score was " + score);
+                    b.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent i = new Intent(Box_Play.this, Box_Play.class);
+
+                            finish();
+
+                            startActivity(i);
+                        }
+                    });
+                    score = 0;
+
+                    b.setNegativeButton("Go to HomePage", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Intent i = new Intent(PlayGame.this, Home.class);
+
+                            finish();
+                            System.exit(0);
+                            //startActivity(i);
+
+                        }
+                    });
+                    b.show();
+                }
+                break;
+            case R.id.imageView22:
+                if(sel == opt[2]){
+                    score++;
+                    fun();
+                } else {
+                    AlertDialog.Builder b = new AlertDialog.Builder(Box_Play.this);
+                    b.setTitle("GAME OVER");
+                    b.setMessage("Your score was " + score);
+                    b.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent i = new Intent(Box_Play.this, Box_Play.class);
+
+                            finish();
+
+                            startActivity(i);
+                        }
+                    });
+                    score = 0;
+
+                    b.setNegativeButton("Go to HomePage", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Intent i = new Intent(PlayGame.this, Home.class);
+
+                            finish();
+                            System.exit(0);
+                            //startActivity(i);
+
+                        }
+                    });
+                    b.show();
+                }
+                break;
+        }
     }
 }

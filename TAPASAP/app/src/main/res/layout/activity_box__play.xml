@@ -116,4 +116,39 @@
         android:id="@+id/imageView18"
         android:layout_below="@+id/imageView9"
         android:layout_toStartOf="@+id/imageView19" />
+
+    <TextView
+        android:text="SELECT YOUR ANSWER"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/imageView7"
+        android:layout_alignStart="@+id/imageView18" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:srcCompat="@mipmap/box12"
+        android:id="@+id/imageView22"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView15" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:srcCompat="@mipmap/box11"
+        android:id="@+id/imageView21"
+        android:layout_alignTop="@+id/imageView22"
+        android:layout_toEndOf="@+id/imageView20" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:srcCompat="@mipmap/box10"
+        android:id="@+id/imageView20"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
