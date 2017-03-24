@@ -37,7 +37,6 @@ public class TapOutHome extends AppCompatActivity implements View.OnClickListene
         System.gc();
         play =(LinearLayout) findViewById(R.id.pp);
         pl = (TextView) findViewById(R.id.play);
-        toolbarMain.setNavigationIcon(null);
         play.setOnClickListener(this);
     }
 

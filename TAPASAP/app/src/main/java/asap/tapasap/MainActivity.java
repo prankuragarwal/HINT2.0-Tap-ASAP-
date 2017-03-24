@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        System.gc();
         i1 = (ImageView)findViewById(R.id.imageView2);
         i2 = (ImageView)findViewById(R.id.imageView3);
         i3 = (ImageView)findViewById(R.id.imageView4);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(inte2);
                 break;
             case R.id.imageView4: //pics
-                inte3 = new Intent(MainActivity.this, TapOutPlayGame.class);
+                inte3 = new Intent(MainActivity.this, TapOutHome.class);
                 startActivity(inte3);
                 break;
             case R.id.imageView5: //cups

@@ -50,7 +50,6 @@ public class TapOutPlayGame extends AppCompatActivity implements View.OnClickLis
         noll = (LinearLayout) findViewById(R.id.noll);
         yes = (TextView) findViewById(R.id.yes);
         yesll = (LinearLayout) findViewById(R.id.yesll);
-        setSupportActionBar(toolbar);
         yesll.setOnClickListener(this);
         noll.setOnClickListener(this);
         playimagezero = (ImageView) findViewById(R.id.playimagezero);
